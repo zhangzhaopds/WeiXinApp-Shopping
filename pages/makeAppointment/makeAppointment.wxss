@@ -1,0 +1,99 @@
+.appointmentPage-wrap {
+  padding-bottom: 117rpx;
+}
+.appointment-top-section {
+  padding: 0 35rpx;
+  line-height: 93rpx;
+}
+.appointment-model-field {
+  padding: 12rpx 23rpx;
+  border-bottom: 1px solid #ddd;
+}
+.appointment-model-right {
+  float: right;
+}
+.appointment-field-selection {
+  width: 400rpx;
+  height: 94rpx;
+  line-height: 94rpx;
+  text-align: right;
+}
+.appointment-service-price {
+  color: red;
+}
+.appointment-date-list {
+  width: 100%;
+  padding-bottom: 23rpx;
+  white-space: nowrap;
+  overflow-x: auto;
+}
+.appointment-date-item {
+  display: inline-block;
+  padding: 23rpx 33rpx;
+  border: 1px solid #ddd;
+  border-left: none;
+  background-color: #eee;
+  text-align: center;
+}
+.appointment-date-item.disabled {
+  color: #aaa;
+}
+.appointment-date-item.selected {
+  position: relative;
+  background-color: #666;
+  color: #fff;
+}
+.appointment-date-item.selected:before {
+  content: '';
+  position: absolute;
+  left: calc(50% - 19rpx);
+  bottom: -19rpx;
+  display: block;
+  border-left: 19rpx solid transparent;
+  border-right: 19rpx solid transparent;
+  border-top: 23rpx solid #666;
+}
+.appointment-period-list {
+  padding: 12rpx 23rpx 33rpx;
+}
+.appointment-period-item {
+  position: relative;
+  display: inline-block;
+  height: 70rpx;
+  width: 24.5%;
+  margin-left: -1px;
+  margin-top: -1px;
+  padding: 33rpx 0;
+  z-index: 1;
+  font-size: 29rpx;
+  text-align: center;
+  color: #666;
+  background-color: #fff;
+  border: 1px solid #aaa;
+  vertical-align: top;
+}
+.appointment-period-item.disabled {
+  color: #aaa;
+  background-color: #eee;
+  border-color: #ccc;
+  z-index: 0;
+}
+.appointment-period-item.selected {
+  border-color: #10b935;
+  /*box-shadow: inset 0 0 1px #10b935;*/
+  z-index: 2;
+}
+.appointment-bottom-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 23rpx 35rpx;
+  z-index:1;
+  background:#fff;
+  border-top: 1px solid #f8f8f8;
+}
+.sure-make-appointment {
+  color: #fff;
+  background-color: #10b935;
+}

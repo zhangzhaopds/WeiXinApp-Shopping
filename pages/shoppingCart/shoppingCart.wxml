@@ -1,0 +1,50 @@
+<view class="shoppingCart-wrap page" id="shoppingCart">
+  <view class="shoppingCart-top-nav">购物车
+  <view class="top-nav-right"><view class="shoppingCart-edit-btn" hidden="{{ editing }}" bindtap="switchToEdit">编辑</view><view class="shoppingCart-edit-complete" hidden="{{ !editing }}" bindtap="editComplete">完成</view></view></view>
+  <view class="shoppingCart-bottom-nav" hidden="{{ editing }}">
+    <label class="shoppingCart-check-box" bindtap="clickSelectAll">
+      <label class="shoppingCart-select-all check-box {{ selectAll ? 'checked' : '' }}">
+        <image src="http://img.zhichiwangluo.com/zc_app_fontschecked.png"></image>
+      </label> 全选
+    </label>
+    <form report-submit="true" bindsubmit="goToPay">
+      <button formType="submit" class="btn pull-right shoppingCart-goto-pay">结算({{ goodsCountToPay }})</button>
+    </form>
+    <!-- <label class="btn btn-red pull-right shoppingCart-goto-pay" bindtap="goToPay">结算（{{ goodsCountToPay }}）</label> -->
+    <label class="pull-right" style="margin-right:10px;">合计:<text class="shoppingCart-all-price">¥ {{ priceToPay }}</text></label>
+  </view>
+  <view class="shoppingCart-edit-bar" hidden="{{ !editing }}"><label class="shoppingCart-check-box" bindtap="clickEditSelectAll"><label class="shoppingCart-select-all check-box {{ editSelectAll ? 'checked' : '' }}"><image src="http://img.zhichiwangluo.com/zc_app_fontschecked.png"></image></label>全选</label><text class="shoppingCart-delete-goods btn btn-red pull-right" bindtap="deleteGoods">删除所选</text></view>
+  <view class="shoppingCart-list-wrap {{ editing ? 'editing-list' : '' }}">
+    <view class="shoppingCart-goods-list">
+      <view wx:for="{{ goodsList }}" wx:for-item="goods" style="position:relative; overflow:hidden;">
+        <label hidden="{{ editing }}" data-index="{{ index }}" class="shoppingCart-check-box" bindtap="clickSelectGoods">
+          <label class="check-box pull-left {{ goods.selected ? 'checked' : '' }}" >
+            <image src="http://img.zhichiwangluo.com/zc_app_fontschecked.png"></image>
+          </label>
+        </label>
+        <label hidden="{{ !editing }}" data-index="{{ index }}" class="shoppingCart-check-box" bindtap="clickEditSelectGoods">
+          <label class="check-box pull-left {{ goods.editSelected ? 'checked' : '' }}">
+            <image src="http://img.zhichiwangluo.com/zc_app_fontschecked.png"></image>
+          </label>
+        </label>
+        <view class="shoppingCart-goods-content">
+          <image class="shoppingCart-goods-cover" src="{{ goods.cover }}"></image>
+          <view class="ellipsis shoppingCart-goods-title">{{ goods.title }}</view>
+          <view class="ellipsis shoppingCart-goods-model" wx:if="{{ goods.model_value_str }}">{{ goods.model_value_str }}</view>
+          <view class="quantity" hidden="{{ editing }}">
+            <label class="minus {{ goods.num <= 1 ? 'disabled' : '' }}"></label>
+            <input type="text" class="txt" value="{{ goods.num }}" data-index="{{ index }}" bindinput="inputGoodsCount"/>
+            <label class="plus"></label>
+            <view class="response-area response-area-minus" bindtap="clickMinusButton" data-index="{{ index }}"></view>
+            <view class="response-area response-area-plus" bindtap="clickPlusButton" data-index="{{ index }}"></view>
+          </view>
+        </view>
+        <view class="shoppingCart-goods-right">
+          <view>¥ <text class="shoppingCart-goods-price">{{ goods.price }}</text></view>
+          <view>× <text class="shoppingCart-goods-count">{{ goods.num }}</text></view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<modal hidden="{{ modalConfig.hidden }}" bindconfirm="modalConfirm" bindcancel="modalCancel">{{ modalConfig.text }}</modal>

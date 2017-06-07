@@ -1,0 +1,17 @@
+<view>
+  <view><icon type="success" size="80"/></view>
+  <view class="paySuccess-tip">支付成功</view>
+  <view class="paySuccess-detail">
+    <view>您的取餐号为: <text class="paySuccess-queue-num">{{ queueNum }}</text></view>
+    <block wx:if="{{ wayOfDine == 1 }}">
+      <view style="margin-top:15px;">大约{{ durationTime }}分钟后至取餐处取餐</view>
+    </block>
+    <block wx:if="{{ wayOfDine == 2 }}">
+      <view style="margin-top:15px;">请在预约取餐时间 {{ appointmentTime }} 至取餐处取餐</view>
+    </block>
+  </view>
+  <view style="margin-top:60px;">
+    <button type="primary" size="mini" bindtap="goToHomepage">返回首页</button>
+    <button type="primary" size="mini" bindtap="goToOrderDetail">查看订单</button>
+  </view>
+</view>

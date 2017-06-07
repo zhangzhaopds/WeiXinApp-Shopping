@@ -1,0 +1,104 @@
+<view class="previewOrder-wrap page" id="previewOrder">
+  <block wx:for="{{ goodsList }}" wx:for-item="goods" wx:for-index="goodsIndex">
+    <view class="previewOrder-goods-list previewOrder-section">
+      <view class="previewOrder-goods-item">
+        <image class="list-goods-cover" src="{{ goods.cover }}" mode="aspectFill"></image>
+        <view class="list-goods-content">
+          <view class="list-goods-title">{{ goods.title }}</view>
+          <view wx:if="{{ goods.model_value_str }}" class="list-goods-model">{{ goods.model_value_str }}</view>
+          <view class="list-goods-price">¥ {{ goods.price }}</view>
+        </view>
+        <view class="list-goods-right">
+          <view class="quantity">
+            <label class="minus"></label>
+            <text class="buy-goods-count">{{ goods.num }}</text>
+            <label class="plus"></label>
+            <view class="response-area response-area-minus" data-index="{{ goodsIndex }}" catchtap="clickMinusButton"></view>
+            <view class="response-area response-area-plus" data-index="{{ goodsIndex }}" catchtap="clickPlusButton"></view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+  <view class="previewOrder-section">
+    <view class="previewOrder-section-title">备注:</view>
+    <textarea bindinput="remarkInput"></textarea>
+  </view>
+  <view class="previewOrder-section">
+    <view class="previewOrder-section-title">就餐方式: </view>
+    <view>
+      <view class="options-group">
+        <view class="options-item-left" catchtap="chooseWayOfDine" data-way="1">
+          <view class="options-item-circle {{ wayOfDine == 1 ? 'selected' : '' }}"></view>
+          <text>点餐</text>
+        </view>
+        <view class="options-item-right" catchtap="chooseWayOfDine" data-way="2">
+          <view class="options-item-circle {{ wayOfDine == 2 ? 'selected' : '' }}"></view>
+          <text>预约</text>
+        </view>
+        <view class="options-group-crossband"></view>
+      </view>
+      <view hidden="{{ wayOfDine == 1 }}" style="margin-top:14px;">
+        <view style="color:#919191; margin-bottom:6px;">预约取餐时间:</view>
+        <view class="previewOrder-time-picker">
+          <picker mode="time" start="{{ optionalTimeStart }}" end="{{ optionalTimeEnd }}" value="{{appointmentTime}}" bindchange="bindTimeChange">
+            <view class="picker">
+              {{ appointmentTime || '请点击选择取餐时间' }}
+            </view>
+          </picker>
+        </view>
+      </view>
+    </view>
+    <view class="previewOrder-section-location">
+      <view style="text-align:left;margin-bottom:10px;">就餐位置：</view>
+      <view>
+        <radio-group style="display:inline-block;" bindchange="radioLocationChange">
+          <label class="radio" wx:if="{{locationId}}">
+              <radio checked="{{locationId}}" value="2"/>{{locationTitle}}
+          </label>
+          <label class="radio">
+              <radio checked="{{!locationId}}" value="0" />自取
+          </label>
+          <label class="radio">
+              <radio value="1"/>其他位置
+          </label>
+        </radio-group>
+        <view class="location-section">
+          <picker bindchange="bindLocationChange" value="{{index}}" range="{{location_data_arr}}" range-key="{{'title'}}">
+            <view class="picker">
+              {{ locationNum || '请选择' }}
+            </view>
+          </picker>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="previewOrder-section" bindtap="showDiscount" wx:if="{{ selectDiscountInfo.discount_type }}">
+    <view class="previewOrder-section-title">优惠方式: <view class="ico-moon icon-rightarrow"></view></view>
+    <view class="select-discount-title">{{ selectDiscountInfo.title }}</view>
+  </view>
+  <view class="previewOrder-section">
+    <view class="previewOrder-section-title">手机号码(必填): </view>
+    <input type="number" placeholder="请输入11位手机号码" bindinput="inputPhone" value="{{ phone }}"></input>
+  </view>
+  <form report-submit="true" bindsubmit="goToPay">
+    <button formType="submit" class="previewOrder-pay-btn" catchtap="confirmPayment">确认支付 ¥ {{ totalPayment }}</button>
+  </form>
+  <view class="previewOrder-discount-dialog" hidden="{{ discountDialogHidden }}">
+    <view class="discount-dialog-content">
+      <view class="discount-dialog-options">
+        <text class="pull-right" catchtap="hideDiscount">取消</text>
+      </view>
+      <view class="previewOrder-section">
+        <view class="previewOrder-section-title">优惠券:</view>
+        <view>
+          <radio-group class="radio-group" bindchange="discountChange">
+            <label class="radio" wx:for="{{ discountList }}">
+              <radio value="{{ index }}" checked="{{ index == selectDiscountIndex ? true : false }}"/>{{item.title}}
+            </label>
+          </radio-group>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

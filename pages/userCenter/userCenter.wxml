@@ -1,0 +1,28 @@
+<view class="page centerPage-wrap" id="userCenterPage" data-router="userCenterPage">
+  <view class="centerPage-user-info">
+    <view class="js-change-cover" bindtap="choosePhoto">
+      <image class="cover-thumb" src="{{ userInfo.cover_thumb }}"></image>
+      <label class="ico-moon icon-rightarrow"></label>
+    </view>
+  </view>
+  <view class="centerPage-user-info">
+    <view class="centerPage-info-item">
+      <label>昵称</label>
+      <label class="ico-moon icon-rightarrow"></label>
+      <input class="nickname" placeholder="请输入您的昵称" value="{{ userInfo.nickname }}" bindinput="inputNickname" />
+    </view>
+    <view class="centerPage-info-item">
+      <label>性别</label>
+      <label class="ico-moon icon-rightarrow"></label>
+      <picker mode="selector" class="centerPage-sex" bindchange="changeGender" value="{{ userInfo.sex }}" range="{{ genderArr }}">
+        <view class="picker">{{ genderArr[userInfo.sex] }}</view>
+      </picker>
+    </view>
+    <view class="centerPage-info-item" bindtap="bindCellphonePage">
+      <label>手机号</label>
+      <label class="ico-moon icon-rightarrow"></label>
+      <view class="userCenter-tel">{{ phone }}</view>
+    </view>
+  </view>
+</view>
+<view class="centerPage-save-btn" bindtap="saveUserInfo">保存</view>

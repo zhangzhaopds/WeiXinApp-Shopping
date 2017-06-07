@@ -1,0 +1,24 @@
+<view class="comPage-wrap page" id="commentPage">
+  <view class="comPage-top-section">
+    <label bindtap="clickCommentLabel" data-type="0" class="comPage-comment-label {{ commnetType == 0 ? 'active' : '' }}"> 全部 </label>
+    <label bindtap="clickCommentLabel" data-type="1" class="comPage-comment-label {{ commnetType == 1 ? 'active' : '' }}">好评 (<label class="comPage-positive-comment">{{ commentNums[1] }}</label>)</label>
+    <label bindtap="clickCommentLabel" data-type="2" class="comPage-comment-label {{ commnetType == 2 ? 'active' : '' }}">中评 (<label class="comPage-neutral-comment">{{ commentNums[2] }}</label>)</label>
+    <label bindtap="clickCommentLabel" data-type="3" class="comPage-comment-label {{ commnetType == 3 ? 'active' : '' }}">差评 (<label class="comPage-negative-comment">{{ commentNums[3] }}</label>)</label>
+    <label bindtap="clickCommentLabel" data-type="4" class="comPage-comment-label {{ commnetType == 4 ? 'active' : '' }}">有图 (<label class="comPage-pic-comment">{{ commentNums[4] }}</label>)</label>
+  </view>
+  <view class="comPage-bottom-section">
+    <scroll-view class="comPage-comment-list" scroll-y="true" bindscrolltolower="scrollLoadComment">
+      <view wx:for="{{ comments }}" class="comPage-comment-item">
+        <view>
+          <image class="comPage-comment-photo" src="{{ item.buyer_headimgurl }}"></image>
+          <text class="comPage-comment-name">{{ item.buyer_nickname }}</text>
+          <text class="comPage-comment-date pull-right">{{ item.add_time }}</text>
+        </view>
+        <view class="comPage-comment-content">{{ item.assess_info.content }}</view>
+        <view wx:if="{{ item.assess_info.has_img }}" class="comPage-comment-pics">
+          <image wx:for="{{ item.assess_info.img_arr }}" wx:for-item="imgSrc" src="{{ imgSrc }}"></image>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+</view>

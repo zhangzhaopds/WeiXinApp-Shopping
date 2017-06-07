@@ -1,0 +1,91 @@
+<import src="../../components/wxParse/wxParse.wxml"/>
+<view class="toStore-detail-wrap" bindtouchstart="pageTouchStart" bindtouchmove="pageTouchMove">
+  <view class="toStore-detail-content">
+    <view>
+      <view class="toStore-cover-container" wx:if="{{ !goodsInfo.img_urls }}">
+        <image src="{{ goodsInfo.cover }}" mode="aspectFill" onload="toStoreCoverOnload"></image>
+      </view>
+      <view class="slick-carousel-container" wx:else>
+        <swiper indicator-dots="{{ indicatorDots }}"
+          autoplay="true" interval="5000" duration="1000">
+          <block wx:for="{{ goodsInfo.img_urls }}">
+            <swiper-item>
+              <image src="{{ item }}" mode="aspectFill" class="slide-image"></image>
+            </swiper-item>
+          </block>
+        </swiper>
+      </view>
+      <view class="toStore-goods-info">
+        <view class="toStore-goods-title">{{ goodsInfo.title }}</view>
+        <view class="toStore-goods-details">
+          <template is="wxParse" data="{{ wxParseData: wxParseDescription.nodes }}" />
+        </view>
+        <view wx:if="{{ showChangeCount }}">
+          <view class="toStore-price">¥ {{ goodsInfo.price }}</view>
+          <view class="quantity" style="position:absolute;right:0;">
+            <label class="minus {{ addToShoppingCartCount <= 0 ? 'disabled' : '' }}"></label>
+            <text class="buy-goods-count">{{ addToShoppingCartCount }}</text>
+            <label class="plus"></label>
+            <view class="response-area response-area-minus" catchtap="clickMinusButton"></view>
+            <view class="response-area response-area-plus" catchtap="clickPlusButton"></view>
+          </view>
+        </view>
+        <view wx:if="{{ showSelectModel }}">
+          <view class="toStore-select-model" bindtap="showAddToShoppingCart">选规格</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="toStore-bottom-nav">
+    <view class="bottom-nav-detail"><label class="icon-shoppingcart ico-moon" catchtap="goToShoppingCart"><label wx:if="{{ cartGoodsNum != 0 }}" class="toStore-cart-tip">{{ cartGoodsNum }}</label></label>¥ {{ cartGoodsTotalPrice }}</view>
+    <view class="bottom-nav-ready {{ cartGoodsNum == 0 ? 'disabled': '' }}" bindtap="readyToPay">选好了</view>
+  </view>
+</view>
+<view class="page-dialog-wrap" hidden="{{ addToShoppingCartHidden }}" bindtap="hiddeAddToShoppingCart">
+  <view class="page-bottom-dialog" catchtap="stopPropagation">
+    <view class="page-bottom-content">
+      <!-- <view class="pay-close-dialog page-dialog-close" bindtap="hiddeAddToShoppingCart">×</view> -->
+      <view class="dialog-block-item">
+        <view class="thumb">
+          <image class="pay-toStore-cover" src="{{ goodsInfo.cover }}"></image>
+        </view>
+        <view>
+          <view class="pay-toStore-title ellipsis">{{ goodsInfo.title }}</view>
+          <view class="pay-toStore-price clearfix">
+            <view class="pay-current-price pull-left">¥ {{ selectModelInfo.price }}</view>
+          </view>
+        </view>
+      </view>
+      <view class="dialog-block-item" hidden="{{ !goodsInfo.model_items.length }}">
+        <view class="pay-toStore-models">
+          <view wx:for="{{ goodsInfo.model }}" wx:for-item="model" wx:for-index="modelIndex">
+            <text style="vertical-align:sub;">{{ model.name }}：</text>
+            <label class="pills-list">
+              <label wx:for="{{ model.subModelName }}"
+                     wx:for-item="name"
+                     data-model-index="{{ modelIndex }}"
+                     data-submodel-index="{{ index }}"
+                     class="subModel {{ selectModelInfo.models[modelIndex] == model.subModelId[index] ? 'select' : '' }}"
+                     data-submodel-id="{{ model.subModelId[index] }}" catchtap="selectSubModel">{{ name }}</label>
+            </label>
+          </view>
+        </view>
+      </view>
+      <view class="dialog-block-item">
+        <view class="clearfix">
+          <text style="display:inline-block;vertical-align:sub;">购买数量：</text>
+          <view class="pull-right">
+            <view class="quantity">
+              <label class="minus {{ selectModelInfo.buyCount <= 1 ? 'disabled' : '' }}"></label>
+              <text class="buy-goods-count">{{ selectModelInfo.buyCount }}</text>
+              <label class="plus"></label>
+              <view class="response-area response-area-minus" catchtap="clickModelMinusButton"></view>
+              <view class="response-area response-area-plus" catchtap="clickModelPlusButton"></view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="add-to-shoppingcart" catchtap="sureAddToShoppingCart">加入购物车</view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,19 @@
+<view class="page bindPhone-wrap" id="bindPhonePage" data-router="bindPhonePage">
+  <view class="verify-wrap" hidden="{{ hideVerifyPhone }}">
+    <view class="verify-row">
+      <label class="item-name">验证码</label><input placeholder="请输入验证码" bindinput="inputOldCode" /><label class="get-code-btn" bindtap="sendCodeToOldPhone" >{{ oldCodeStatus }}</label>
+    </view>
+    <view class="next-step" bindtap="nextStep">下一步</view>
+  </view>
+  <view class="bind-new-tel-wrap" hidden="{{ hideBindNewPhone }}">
+    <view class="verify-row" style="border-bottom: 1px solid #e5e5e5;">
+      <label class="item-name">手机号</label><input class="code-tel" bindinput="inputPhone" placeholder="请输入新手机号"/>
+    </view>
+    <view class="verify-row">
+      <label class="item-name">验证码</label><input bindinput="inputNewCode" placeholder="请输入验证码"/><label class="get-code-btn" bindtap="sendCodeToNewPhone">{{ newCodeStatus }}</label>
+    </view>
+    <label class="bind-new-tel-btn {{ !newPhone || !newCode ? 'disabled' : '' }}" bindtap="bindNewPhone">绑定手机</label>
+    <view class="support-tip">即速应用技术支持</view>
+  </view>
+</view>
+

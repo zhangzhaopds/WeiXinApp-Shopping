@@ -1,0 +1,14 @@
+{
+  "pages": ["pages\/page10000\/page10000","pages\/page10001\/page10001","pages\/page10002\/page10002","pages\/page10004\/page10004","pages\/page10008\/page10008","pages\/page10007\/page10007","pages\/page10006\/page10006","pages\/page10005\/page10005","pages\/page10009\/page10009","pages\/bindCellphone\/bindCellphone","pages\/userCenter\/userCenter","pages\/myMessage\/myMessage","pages\/myIntegral\/myIntegral","pages\/couponList\/couponList","pages\/couponDetail\/couponDetail","pages\/vipCard\/vipCard","pages\/goodsComment\/goodsComment","pages\/logisticsPage\/logisticsPage","pages\/orderDetail\/orderDetail","pages\/goodsDetail\/goodsDetail","pages\/makeComment\/makeComment","pages\/myAddress\/myAddress","pages\/addAddress\/addAddress","pages\/myOrder\/myOrder","pages\/shoppingCart\/shoppingCart","pages\/makeAppointment\/makeAppointment","pages\/toStoreDetail\/toStoreDetail","pages\/previewOrderDetail\/previewOrderDetail","pages\/paySuccess\/paySuccess","pages\/verificationCodePage\/verificationCodePage"],
+  "window": {
+    "enablePullDownRefresh": false
+  },
+    "tabBar": {"borderStyle":"white","color":"#AAAAAA","selectedColor":"#251A17","backgroundColor":"#FFFFFF","list":[{"iconPath":"images\/591d11c394259.png","selectedIconPath":"images\/591d11c3942d0.png","text":"喜乐","pagePath":"pages\/page10000\/page10000"},{"iconPath":"images\/591d11c3b2454.png","selectedIconPath":"images\/591d11c3b24ac.png","text":"茶铺","pagePath":"pages\/page10001\/page10001"},{"iconPath":"images\/591d11c3beb79.png","selectedIconPath":"images\/591d11c3bebcc.png","text":"我的","pagePath":"pages\/page10002\/page10002"}]},
+    "networkTimeout": {
+    "request": 10000,
+    "connectSocket": 10000,
+    "uploadFile": 10000,
+    "downloadFile": 10000
+  },
+  "debug": false
+}

@@ -1,0 +1,128 @@
+page {
+  height: 100%;
+  background-color: #eee;
+}
+.dialog-block-item {
+  padding: 8px 0;
+}
+.myOrder-wrap {
+  height: 100%;
+}
+.myOrder-content-body {
+  height:calc(100% - 105rpx);
+  margin-top: 105rpx;
+}
+.myOrder-content-container {
+  height: 100%;
+}
+.myOrder-tab-list {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  line-height: 85rpx;
+  height: 88rpx;
+  background: #fff;
+  text-align: center;
+}
+.myOrder-tab-list view {
+  border-bottom: 1px solid transparent;
+}
+.myOrder-tab-list view.active {
+  color: #d20e10;
+  border-color: #d20e10;
+}
+.myOrder-list-wrap {
+  padding: 0 23rpx;
+  margin-bottom: 19rpx;
+  background-color: #fff;
+}
+.myOrder-tostore .myOrder-list-wrap {
+  font-size: 13px;
+  margin-bottom: 23rpx;
+}
+.tostore-see-detail {
+  color: #aaa;
+}
+.myOrder-goods-cover {
+  position: absolute;
+  left: 0;
+  width: 50px;
+  height: 50px;
+}
+.myOrder-tostore .myOrder-goods-cover {
+  width: 90px;
+  height: 61px;
+}
+.myOrder-goods-title {
+  padding: 0 70px 0 60px;
+  height: 50px;
+  overflow: hidden;
+}
+.tostore-goods-detail {
+  padding: 12px 0 0 103px;
+  height: 61px;
+  box-sizing:border-box;
+}
+.myOrder-tostore-title {
+  margin-bottom: 5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.myOrder-goods-right {
+  position: absolute;
+  top: 0.625rem;
+  right: 0;
+  max-width: 4.5625rem;
+  line-height: 1.25rem;
+  text-align: right;
+}
+.myOrder-list-bottom {
+  text-align: right;
+  line-height: 64rpx;
+  padding: 16rpx 0;
+}
+.myOrder-tostore .myOrder-list-bottom {
+}
+.myOrder-list-count {
+  margin-right: 10px;
+}
+.myOrder-pay-price {
+  color: #d20e10;
+/*  margin-left: 10px;
+  margin-right: 15px;*/
+}
+.myOrder-list-bottom .btn {
+  padding: 0.1875rem 0.5rem;
+  margin-right: 0.625rem;
+}
+.myOrder-list-bottom .btn:last-child {
+  margin-right:0;
+}
+.noMoreNewDataTip {
+  text-align: center;
+  color: #aaa;
+  line-height: 30px;
+  margin-bottom: 10px;
+}
+.scrollContainer {
+  height: 100%;
+}
+.myOrder-franchisee-name {
+  padding: 5px 0;
+  color: #aaa;
+}
+.tostore-order-status {
+  margin-left: 15px;
+}
+.tostore-order-queuenum {
+  color: #e14443;
+}
+.tostore-order-waittime {
+  font-size: 12px;
+  line-height: 1.6;
+  text-align: left;
+  color: #616161;
+}

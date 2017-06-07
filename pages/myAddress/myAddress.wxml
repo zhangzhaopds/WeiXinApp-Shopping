@@ -1,0 +1,29 @@
+<view class="myAddress-wrap page" id="myAddress">
+  <view class="myAddress-content-container">
+    <view class="myAddress-address-list">
+      <block wx:if="{{ afterInitial }}">
+        <block wx:if="{{ !addressList.length }}">
+          <view style="color:#a8a8a8; padding:20px;">暂无地址</view>
+        </block>
+        <block wx:else>
+          <block wx:for="{{ addressList }}">
+            <view class="myAddress-address">
+              <label class="check-box-container" wx:if="{{ from != 'userCenterEle' }}" bindtap="selectAddress" data-id="{{ item.id }}">
+                <label class="check-box {{ item.id == selectAddressId ? 'checked' : '' }}">
+                  <image src="http://img.zhichiwangluo.com/zc_app_fontschecked.png"></image>
+                </label>
+              </label>
+              <view class="myAddress-address-top" bindtap="editAddress" data-id="{{ item.id }}">
+                <text>{{ item.address_info.name }}</text>
+                <text>{{ item.address_info.contact }}</text>
+                <view>{{ item.address_info.province.text + item.address_info.city.text + item.address_info.district.text + item.address_info.detailAddress }}</view>
+              </view>
+              <text class="myAddress-delete" bindtap="deleteAddress" data-id="{{ item.id }}">删除</text>
+            </view>
+          </block>
+        </block>
+      </block>
+    </view>
+  </view>
+  <view class="myAddress-bottom-nav" bindtap="addAddress" wx:if="{{ !selectAddressId }}">添加新地址</view>
+</view>

@@ -1,0 +1,185 @@
+page {
+  background-color: #eee;
+}
+.page-top-nav {
+  position: static;
+  margin: 0;
+}
+
+.orderDetail-wrap .orderDetail-section {
+  padding: 12px 15px;
+  margin-bottom: 6px;
+  background: #fff;
+}
+.orderDetail-wrap .tostore-queue-section {
+  margin-bottom: 15px;
+  font-size: 16px;
+}
+
+.orderDetail-goto-homepage .icon-rightarrow {
+  position:absolute;
+  right:10px;
+  display:block;
+  font-size:18px;
+}
+
+.orderDetail-wrap .orderDetail-section:last-child {
+  margin-bottom: 0;
+}
+.orderDetail-wrap .right-arrow-bar {
+  line-height: 18px;
+}
+.orderDetail-wrap .right-arrow-bar:before {
+  top: 7px;
+}
+.orderDetail-pay-count {
+  color: #d20e10;
+}
+.orderDetail-btn-status text {
+  display: inline-block;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+.orderDetail-payment {
+  margin-top: 5px;
+}
+.orderDetail-payment image {
+  width: 80px;
+}
+.orderDetail-wrap .check-box {
+  margin-top: 3px;
+}
+.orderDetail-wrap .list-goods-cover {
+  left: 0;
+}
+.orderDetail-wrap .list-goods-content {
+  padding-left: 63px;
+}
+.orderDetail-wrap .list-goods-model {
+  margin-top: 5px;
+  color: #aaa;
+}
+.payPage-wrap {
+  background-color: #eee;
+}
+.customField-container {
+  margin: 10px 0;
+}
+.customField-container input {
+  padding: 6px;
+  border: 1px solid #eee;
+}
+.customField-container textarea {
+  width: calc(100% - 14px);
+  height: 100px;
+  padding: 6px;
+  border: 1px solid #eee;
+}
+.custom-field-image {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+  margin-right: 14px;
+}
+.custom-field-image image {
+  width: 100%;
+  height: 100%;
+}
+.custom-field-image label {
+  position: absolute;
+  right: -6px;
+  top: -6px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #fff;
+  border: 1px solid #666;
+  text-align: center;
+  line-height: 20px;
+}
+.upload-field-image {
+  display: block;
+  width: 80px;
+  height: 26px;
+  line-height: 26px;
+  margin-top: 7px;
+  border: 1px solid #ccc;
+  color: #666;
+  font-size: 12px;
+  border-radius: 4px;
+  background: #fff;
+  text-align: center;
+}
+
+.addressDialog-content {
+  padding: 0 52px 0 45px;
+}
+.addressDialog-right {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  width: 40px;
+  height: 40px;
+  line-height: 20px;
+  text-align: right;
+}
+.check-box {
+  margin: 4px 10px 0;
+  float: left;
+}
+.addressDialog-add-address {
+  height: 48px;
+  line-height: 48px;
+  font-size: 16px;
+  text-align: center;
+  color: #666;
+  background-color: #fff;
+}
+.addressDialog-add-section {
+  display: none;
+  padding: 0 10px;
+}
+.addressDialog-name {
+  font-weight: bold;
+  margin-right: 15px;
+}
+.addressDialog-address {
+  margin-top: 5px;
+  font-size: 0.75rem;
+  color: #787878;
+}
+.addressDialog-add-section select {
+  line-height: 24px;
+  border-radius: 4px;
+  margin: 2px 6px 2px 0;
+}
+.input {
+  width: auto;
+}
+.addressDialog-delete {
+  color: #F27272
+}
+.flex-sub-box-2 {
+  padding: 0 5px;
+}
+
+
+.orderDetail-address-ops {
+  font-size:12px;
+  text-align:right;
+  margin-top:10px;
+  margin-bottom:-12px;
+  border-top:1px solid #f8f8f8;
+}
+.orderDetail-address-ops text {
+  display: inline-block;
+  padding: 8px;
+  margin-right: 8px;
+}
+.orderDetail-address-ops text:last-child {
+  margin: 0;
+}
+.orderDetail-item-row {
+  line-height: 24px;
+}

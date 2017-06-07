@@ -1,0 +1,57 @@
+.comPage-wrap {
+  background-color: #f6f6f6;
+}
+.comPage-top-section {
+  margin: 12px 0;
+  padding: 12px 10px 0;
+  background-color: #fff;
+}
+.comPage-comment-label {
+  display: inline-block;
+  padding: 5px 7px;
+  margin-right: 5px;
+  margin-bottom: 12px;
+  font-size: 12px;
+  color: #7c7877;
+  background-color: #f5ece7;
+  border-radius: 2px;
+}
+.comPage-comment-label.active {
+  color: #fff;
+  background-color: #ff4200;
+}
+.comPage-comment-list {
+  color: #000;
+  background-color: #fff;
+}
+.comPage-comment-item {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+.comPage-comment-photo {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  margin-right: 7px;
+  vertical-align: middle;
+}
+.comPage-comment-name {
+  font-size: 15px;
+}
+.comPage-comment-content {
+  margin: 13px 0 7px;
+  font-size: 13px;
+  line-height: 16px;
+}
+.comPage-comment-date, .comPage-comment-model {
+  color: #aaa;
+  font-size: 13px;
+}
+.comPage-comment-pics {
+  margin: 10px 0 5px;
+}
+.comPage-comment-pics image {
+  width: 50px;
+  height: 50px;
+  margin-right: 8px;
+}

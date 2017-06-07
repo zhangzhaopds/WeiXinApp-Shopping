@@ -1,0 +1,105 @@
+page {
+  background-color: #f6f6f6;
+}
+
+.tabs {
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  background: #fff;
+  margin-bottom: 10px;
+}
+
+.tabs .tabs-wrap {
+  height: 100%;
+  width: 70%;
+  margin: 0 auto;
+}
+
+.tabs .tabs-wrap view {
+  float: left;
+  width: 33.3%;
+  height: 48px;
+}
+
+.tabs .active {
+  border-bottom: 2px solid #10b935;
+  color: #10b935;
+}
+
+.unuse-page .ticket-wrap {
+  height: 220rpx;
+  width: 90%;
+  margin: 0 auto;
+  background: #fff;
+  position: relative;
+  overflow: hidden;
+  border-radius: 5px;
+  border-top: 4px solid #f60;
+}
+
+.unuse-page image {
+  position: absolute;
+  right: 20rpx;
+  bottom: 5px;
+  height: 180rpx;
+  width: 180rpx;
+  z-index: 10;
+}
+
+.unuse-page .ticket-wrap .price {
+  color: #888;
+}
+
+.unuse-page .ticket-wrap .price text {
+  font-size: 26px;
+}
+
+.unuse-page .ticket-wrap .price {
+  float: left;
+  height: 180rpx;
+  width: 180rpx;
+  text-align: center;
+  line-height: 180rpx;
+  margin-top: 20rpx;
+  border-right: 1px dotted #ddd;
+  margin-right: 15px;
+}
+
+.unuse-page .ticket-wrap .right {
+  float: left;
+}
+
+.unuse-page .ticket-wrap .right .name {
+  font-size: 32rpx;
+  font-weight: normal;
+  margin: 13px 0 8px 0;
+}
+
+.unuse-page .ticket-wrap .right .condition {
+  font-size: 24rpx;
+  margin: 0;
+}
+
+.unuse-page .ticket {
+  margin-bottom: 10px;
+}
+
+.unuse-page .ticket .bottom {
+  width: 90%;
+  margin: 0 auto;
+  text-indent: 1em;
+  padding: 10px 0;
+  background: #f7f7f7;
+  border-radius: 5px;
+  border-top: 1px dotted #c6c6c6;
+  font-size: 12px;
+  color: #888;
+  border: 1px solid #eee;
+}
+.expired .ticket-wrap{
+  border-top: 4px solid #888;
+}
+.expired .right{
+  color: #888;
+}
