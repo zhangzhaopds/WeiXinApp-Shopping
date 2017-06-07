@@ -1,0 +1,88 @@
+<view class="app">
+<template name="zcUserCenter">
+  <view class="user-center usercenter-mode1 background-ele {{ data.customFeature['with-horizontal'] ? 'with-horizontal-view': '' }}" style="{{data.style}}">
+    <view class="show-view" catchtap="UserCenterTurnToPage" data-router="userCenter" 
+          style="{{ data.customFeature.topSectionStyle['background-image'] ? ('background-image:' + data.customFeature.topSectionStyle['background-image']) : ('background-color:' + data.customFeature.topSectionStyle['background-color']) }}" >
+      <label class="empty-span"></label>
+      <image class="cover-thumb" src="{{ userInfo.cover_thumb || 'http://img.zhichiwangluo.com/zc_app_default_photo.png'}}"></image>
+      <label class="nickname">{{ userInfo.nickname || '用户名' }}</label>
+      <label class="ico-moon icon-rightarrow"></label>
+    </view>
+    <block wx:if="{{ data.customFeature['with-horizontal'] }}">
+      <view class="horizontal-view">
+        <view class="horizontal-router-container1">
+          <block wx:for="{{ data.customFeature.appendComponent }}">
+            <view wx:if="{{ item == 'myAddress' }}" 
+                  catchtap="UserCenterTurnToPage" 
+                  data-router="myAddress" 
+                  data-open-verify-phone="{{ data.customFeature.appendComponentAttr['myAddress']['openVerifyPhone'] }}"
+                  style="margin-top: {{ data.customFeature.appendComponentAttr['myAddress']['margin-top'] }}">
+              <label class="ico-moon icon-location"></label>
+              <text>收货地址</text>
+              <label class="ico-moon icon-rightarrow"></label>
+            </view>
+            <view wx:elif="{{ item == 'myOrder' }}" 
+                  catchtap="UserCenterTurnToPage"
+                  data-router="myOrder"
+                  data-open-verify-phone="{{ data.customFeature.appendComponentAttr['myOrder']['openVerifyPhone'] }}"
+                  style="margin-top: {{ data.customFeature.appendComponentAttr['myOrder']['margin-top'] }}">
+              <label class="ico-moon icon-notebook"></label>
+              <text>我的订单</text>
+              <label class="ico-moon icon-rightarrow"></label>
+            </view>
+            <view wx:elif="{{ item == 'shoppingCart' }}"
+                  catchtap="UserCenterTurnToPage"
+                  data-router="shoppingCart"
+                  data-open-verify-phone="{{ data.customFeature.appendComponentAttr['shoppingCart']['openVerifyPhone'] }}"
+                  style="margin-top: {{ data.customFeature.appendComponentAttr['shoppingCart']['margin-top'] }}">
+              <label class="ico-moon icon-shoppingcart"></label>
+              <text>购物车</text>
+              <label class="ico-moon icon-rightarrow"></label>
+            </view>
+            <view wx:elif="{{ item == 'myMessage' }}"
+                  catchtap="UserCenterTurnToPage"
+                  data-router="myMessage"
+                  data-open-verify-phone="{{ data.customFeature.appendComponentAttr['myMessage']['openVerifyPhone'] }}"
+                  style="margin-top: {{ data.customFeature.appendComponentAttr['myMessage']['margin-top'] }}">
+              <label class="ico-moon icon-notify"></label>
+              <text>系统通知</text>
+              <label class="ico-moon icon-rightarrow"></label>
+            </view>
+            <view wx:elif="{{ item == 'vipCard' }}"
+                  catchtap="UserCenterTurnToPage"
+                  data-router="vipCard"
+                  data-open-verify-phone="{{ data.customFeature.appendComponentAttr['vipCard']['openVerifyPhone'] }}"
+                  style="margin-top: {{ data.customFeature.appendComponentAttr['vipCard']['margin-top'] }}">
+              <label class="ico-moon icon-vip-card"></label>
+              <text>会员卡</text>
+              <label class="ico-moon icon-rightarrow"></label>
+            </view>
+            <view wx:elif="{{ item == 'coupon' }}"
+                  catchtap="UserCenterTurnToPage"
+                  data-router="couponList"
+                  data-open-verify-phone="{{ data.customFeature.appendComponentAttr['coupon']['openVerifyPhone'] }}"
+                  style="margin-top: {{ data.customFeature.appendComponentAttr['coupon']['margin-top'] }}">
+              <label class="ico-moon icon-coupon"></label>
+              <text>优惠券</text>
+              <label class="ico-moon icon-rightarrow"></label>
+            </view>
+            <view wx:elif="{{ item == 'myIntegral' }}"
+                  catchtap="UserCenterTurnToPage"
+                  data-router="myIntegral"
+                  data-open-verify-phone="{{ data.customFeature.appendComponentAttr['myIntegral']['openVerifyPhone'] }}"
+                  style="margin-top: {{ data.customFeature.appendComponentAttr['myIntegral']['margin-top'] }}">
+              <label class="ico-moon icon-integral"></label>
+              <text>积分</text>
+              <label class="ico-moon icon-rightarrow"></label>
+            </view>
+          </block>
+        </view>
+      </view>
+    </block>
+  </view>
+</template>
+<view class="ele-container">
+  <template is="zcUserCenter" data="{{data:user_center1, userInfo: userInfo}}"></template>
+</view>
+
+</view>

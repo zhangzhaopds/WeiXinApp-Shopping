@@ -1,0 +1,72 @@
+<view class="myIntegral-wrap page" id="myIntegral">
+  <scroll-view class="myIntegral-content" wx:if="{{ integralPage == 0 }}" scroll-y="true"  bindscroll="fixedMessageNav" lower-threshold="116" bindscrolltolower="checkMoreMessageData">
+    <view class="integral-detail">
+      <view class="detail-name">
+        <view class="single-icon">积</view>
+        <text>现有积分/总积分</text>
+      </view>
+      <view class="detail-num">
+        <text>{{ canUseIntegral }} / {{ totalIntegral }}</text>
+      </view>
+      <view class="detail-rule" catchtap="showIntegralRule">
+        <view class="single-icon">?</view>
+        <text>积分规则</text>
+      </view>
+    </view>
+    <view class="message-nav">
+      <view class="type-item {{ currentMessageType == 'income' ? 'active' : '' }}" catchtap="setCurrentMessageType" data-type="income" >收入</view>
+      <view class="type-item {{ currentMessageType == 'outcome' ? 'active' : '' }}" catchtap="setCurrentMessageType" data-type="outcome" >支出</view>
+    </view>
+    <view class="message-nav {{ navFixed ? 'fixed' : 'nofixed' }}">
+      <view class="type-item {{ currentMessageType == 'income' ? 'active' : '' }}" catchtap="setCurrentMessageType" data-type="income" >收入</view>
+      <view class="type-item {{ currentMessageType == 'outcome' ? 'active' : '' }}" catchtap="setCurrentMessageType" data-type="outcome" >支出</view>
+    </view>
+    <view class="message-content {{ currentMessageType == 'income' ? 'active' : '' }}" >
+      <block wx:for="{{ incomeBranch.data }}">
+        <view class="message-item">
+          <view class="message-title">{{ item.content }}</view>
+          <view class="message-time">{{ item.time }}</view>
+          <view class="message-num">{{ item.num }}</view>
+        </view>
+      </block>
+    </view>
+    <view class="message-content {{ currentMessageType == 'outcome' ? 'active' : '' }}" >
+      <block wx:for="{{ outcomeBranch.data }}">
+        <view class="message-item">
+          <view class="message-title">{{ item.content }}</view>
+          <view class="message-time">{{ item.time }}</view>
+          <view class="message-num">{{ item.num }}</view>
+        </view>
+      </block>
+    </view>
+  </scroll-view>
+  <view class="myIntegral-rule" wx:if="{{ integralPage == 1 }}">
+    <view class="rule-list">
+      <view class="rule-item">
+        <view class="item-name">积累规则</view>
+        <view class="item-content">消费 {{ integralRule.consumeNum }} 元，获得 1 积分</view>
+      </view>
+      <view class="rule-item" wx:if="{{ integralRule.loginNum != 0 }}">
+        <view class="item-name">额外积分</view>
+        <view class="item-content">每天登录送 {{ integralRule.loginNum }} 积分</view>
+      </view>
+      <view class="rule-item" wx:if="{{ integralRule.shareNum != 0 }}">
+        <view class="item-name">额外积分</view>
+        <view class="item-content">推荐好友送 {{ integralRule.shareNum }} 积分</view>
+      </view>
+      <view class="rule-item" wx:if="{{ integralRule.postCommentNum != 0 }}">
+        <view class="item-name">额外积分</view>
+        <view class="item-content">商品评论送 {{ integralRule.postCommentNum }} 积分</view>
+      </view>
+      <view class="rule-item">
+        <view class="item-name">使用积分</view>
+        <view class="item-content">{{ integralRule.convertNum }} 积分 = 1元</view>
+      </view>
+      <view class="rule-item">
+        <view class="item-name">提醒</view>
+        <view class="item-content">消费积分并不会影响升级会员卡，与会员升级相关的是总积分</view>
+      </view>
+    </view>
+    <view class="confirm-btn" catchtap="hideIntegralRule">确定</view>
+  </view>
+</view>

@@ -1,0 +1,75 @@
+<view class="myMessage-wrap page" id="myMessage">
+  <view class="myMessage-top-nav" wx:if="{{ messageDetail == 0 }}">
+    <view class="myMessage-type-list">
+      <view class="myMessage-type-item {{ messageType == 5 ? 'active' : '' }}" catchtap="changeMessageType" data-message-type="5" >系统消息</view>
+      <view class="myMessage-type-item {{ messageType == 6 ? 'active' : '' }} {{ interactBranch.unreadCount > 0 ? 'has-noread' : '' }}" catchtap="changeMessageType" data-message-type="6" >互动消息</view>
+    </view>
+  </view>
+  <view class="myMessage-content-container" wx:if="{{ messageDetail == 0 }}">
+    <scroll-view id="myMessage-system-message" class="myMessage-content {{ messageType == 5 ? 'active' : '' }}" scroll-y="true" lower-threshold="116" bindscrolltolower="checkMoreMessageData">
+      <block wx:for="{{ systemBranch.data }}">
+        <view class="message-item {{ item.className }}" wx:if="{{ item.messageType == 1 }}" catchtap="jumpToPage" data-page-url="{{ item.messagePageUrl }}" >
+          <view class="message-title">{{ item.messageTitle }}</view>
+          <view class="message-time">{{ item.messageTime }}</view>
+          <image class="message-img" src="{{ item.messageImg }}" ></image>
+          <view class="message-content">{{ item.messageContent }}</view>
+        </view>
+        <view class="message-item {{ item.className }}" wx:elif="{{ item.messageType == 2 }}">
+          <view class="message-title">{{ item.messageTitle }}</view>
+          <view class="message-time">{{ item.messageTime }}</view>
+          <view class="message-img" >
+            <view class="ico-moon {{ item.messageImg }}"></view>
+          </view>
+          <view class="message-content">
+            <view class="message-price">
+              <view class="message-price-text">支付金额：</view>
+              <view class="message-price-text">¥ {{ item.messagePrice }}</view>
+            </view>
+            <view class="message-orderNum">
+              <view class="message-orderNum-text">订单号：</view>
+              <view class="message-orderNum-text">{{ item.messageOrderId }}</view>
+            </view>
+          </view>
+        </view>
+        <view class="message-item {{ item.className }}" wx:elif="{{ item.messageType == 3 }}" data-form="{{ item.messageForm }}" data-form-id="{{ item.messageFormId }}" data-form-data-id="{{ item.messageFormDataId }}" catchtap="showMessageDetailForm">
+          <view class="message-title">{{ item.messageTitle }}</view>
+          <view class="message-time">{{ item.messageTime }}</view>
+          <view class="message-img" >
+            <view class="ico-moon {{ item.messageImg }}"></view>
+          </view>
+          <view class="message-content">{{ item.messageContent }}</view>
+        </view>
+        <view class="message-item {{ item.className }}" wx:elif="{{ item.messageType == 8 }}" >
+          <view class="message-title">{{ item.messageTitle }}</view>
+          <view class="message-time">{{ item.messageTime }}</view>
+          <view class="message-img" >
+            <view class="ico-moon {{ item.messageImg }}"></view>
+          </view>
+          <view class="message-content">{{ item.messageContent }}</view>
+        </view>
+      </block>
+    </scroll-view>
+    <scroll-view id="myMessage-interact-message" class="myMessage-content {{ messageType == 6 ? 'active' : '' }}" scroll-y="true" lower-threshold="116" bindscrolltolower="checkMoreMessageData">
+      <block wx:for="{{ interactBranch.data }}">
+        <view class="message-item {{ item.className }}" wx:if="{{ item.messageType == 4 }}" >
+          <view class="message-title">{{ item.messageTitle }}</view>
+          <view class="message-time">{{ item.messageTime }}</view>
+          <view class="message-img" >
+            <view class="ico-moon {{ item.messageImg }}"></view>
+          </view>
+          <view class="message-content">{{ item.messageContent }}</view>
+        </view>
+      </block>
+    </scroll-view>
+  </view>
+  <view class="myMessage-detail-form" wx:if="{{ messageDetail == 3 }}">
+    <view class="myMessage-form-list">
+      <view class="myMessage-form-item" wx:for="{{ messageDetailFormData }}">
+        <view class="data-name">{{ item.dataName }}</view>
+        <view class="data-content" wx:if="{{ item.dataType != 2 }}">{{ item.dataContent }}</view>
+        <image class="data-img" src="{{ item.dataContent }}" wx:elif="{{ item.dataType == 2 }}"></image>
+      </view>
+    </view>
+    <view class="myMessage-form-confirm" catchtap="confirmMessageDetailForm">确定</view>
+  </view>
+</view>

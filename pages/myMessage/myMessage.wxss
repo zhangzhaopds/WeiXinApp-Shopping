@@ -1,0 +1,202 @@
+#myMessage {
+  min-height: 100vh;
+  background-color: #edeeef;
+}
+#myMessage .myMessage-top-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 42px;
+  line-height: 42px;
+  text-align: center;
+  z-index: 9;
+  box-shadow: 0 1px 2px #eee;
+  background-color: #f6f7f8;
+}
+#myMessage .myMessage-return-btn .icon-leftarrow {
+  vertical-align: top;
+  display: inline-block;
+}
+#myMessage .myMessage-return-btn {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 36px;
+  font-size: 20px;
+  text-align: center;
+}
+#myMessage .myMessage-type-item {
+  position: relative;
+  display: inline-block;
+  min-width: 70px;
+}
+#myMessage .myMessage-type-item.has-noread::after {
+  position: absolute;
+  top: 8px;
+  right: -5px;
+  width: 5px;
+  height: 5px;
+  background: #ff0000;
+  border-radius: 50%;
+}
+#myMessage .myMessage-type-item.active.has-noread::after {
+  display:none;
+}
+#myMessage .myMessage-type-item:first-child {
+  margin-right: 15px;
+}
+#myMessage .myMessage-type-item.active {
+  color: #55b737;
+  border-bottom: 1px solid #55b737;
+}
+#myMessage .myMessage-content-container {
+  padding-top: 42px;
+}
+#myMessage .myMessage-content {
+  display: none;
+  height: calc(100vh - 42px);
+}
+#myMessage .myMessage-content.active {
+  display: block;
+}
+#myMessage .message-item {
+  position: relative;
+  margin: 16px 10px 0;
+  height: 100px;
+  background: #feffff;
+  border-radius: 4px;
+}
+#myMessage .message-item:last-child {
+  margin-bottom: 16px; 
+}
+#myMessage .message-item .message-title {
+  position: absolute;
+  top: 10px;
+  left: 12px;
+}
+#myMessage .message-item.type-pay .message-title ,
+#myMessage .message-item.type-form .message-title ,
+#myMessage .message-item.type-comment .message-title ,
+#myMessage .message-item.type-Administrators .message-title {
+  color: #55b737;
+}
+#myMessage .message-item .message-time {
+  position: absolute;
+  top: 13px;
+  right: 12px;
+  font-size: 12px;
+  color: #acacac;
+}
+#myMessage .message-item .message-img {
+  position: absolute;
+  display: block;
+  top: 36px;
+  left: 10px;
+  width: 50px;
+  height: 50px;
+}
+#myMessage .message-item.type-pay .message-img ,
+#myMessage .message-item.type-form .message-img ,
+#myMessage .message-item.type-comment .message-img ,
+#myMessage .message-item.type-Administrators .message-img {
+  border-radius: 50%;
+  color: #fff;
+  text-align: center;
+  font-size: 30px;
+}
+#myMessage .message-item.type-pay .message-img {
+  background: #f6ce59;
+}
+#myMessage .message-item.type-form .message-img {
+  background: #9dd64b;
+}
+#myMessage .message-item.type-comment .message-img {
+  background: #f5ce59;
+}
+#myMessage .message-item.type-Administrators .message-img {
+  background: #adadad;
+}
+#myMessage .message-item.type-pay .icon-message-pay,
+#myMessage .message-item.type-Administrators .icon-notify {
+  display: inline-block;
+  vertical-align: top;
+  margin-top: 8px;
+}
+#myMessage .message-item.type-form .icon-message-form ,
+#myMessage .message-item.type-comment .icon-message-comment {
+  display: inline-block;
+  vertical-align: top;
+  margin-top: 10px;
+}
+#myMessage .message-item .message-content {
+  position: absolute;
+  top: 36px;
+  left: 75px;
+  width: calc(100% - 85px);
+  max-height: 56px;
+  overflow: hidden;
+  font-size: 14px;
+}
+#myMessage .message-item.type-pay .message-price {
+  margin-top: 8px;
+}
+#myMessage .message-item.type-pay .message-orderNum {
+  margin-top: 4px;
+  color: #acacac;
+}
+#myMessage .message-item.type-pay .message-price-text ,
+#myMessage .message-item.type-pay .message-orderNum-text {
+  display: inline-block;
+}
+#myMessage .myMessage-detail-form {
+
+}
+#myMessage .myMessage-form-list {
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  margin-top: 15px;
+  background: #feffff;
+}
+#myMessage .myMessage-form-item {
+  min-height: 36px;
+  border-bottom: 1px solid #ddd;
+  margin: 0 10px;
+  padding: 5px 0;
+  line-height: 36px;
+}
+#myMessage .myMessage-form-item:last-child {
+  border: 0;
+}
+#myMessage .myMessage-form-item .data-name {
+  display: inline-block;
+  height: 36px;
+  width: 85px;
+  margin-right: 8px;
+  vertical-align: top;
+  color: #878889;
+  text-align: center;
+  overflow: hidden;
+}
+#myMessage .myMessage-form-item .data-content {
+  display: inline-block;
+  max-width: calc(100% -90px);
+  min-height: 36px;
+  line-height: 36px;
+  overflow: hidden;
+  vertical-align: top;
+}
+#myMessage .myMessage-form-item .data-img {
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+}
+#myMessage .myMessage-detail-form .myMessage-form-confirm {
+  margin: 14px 10px;
+  padding: 10px 0;
+  background: #55b737;
+  border-radius: 5px;
+  color: #fff;
+  text-align: center;
+  font-size: 16px;
+}

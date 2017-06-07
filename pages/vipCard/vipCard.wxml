@@ -1,0 +1,97 @@
+<view class="page" id="vipCard">
+  <view class="yes-receive-card" wx:if="{{ receiveCard == 1 }}">
+    <view class="card-wrap" >
+      <view class="card" style="background: {{ cardDetail.cardBackground }}">
+        <image class="logo" src="{{ cardDetail.logoUrl }}"></image>
+        <view class="title">{{ cardDetail.appName }}</view>
+        <view class="level">{{ cardDetail.level }}</view>
+        <view class="duration">{{ cardDetail.duration }}</view>
+      </view>
+    </view>
+    <view class="card-content">
+      <view class="card-item">
+        <view class="item-title {{ activeItem == 'rights' ? 'active' : ''}}" catchtap="showItemContent" data-item="rights" >
+          <text>会员权益</text>
+          <label class="ico-moon icon-downarrow"></label>
+        </view>
+        <view class="item-body vipCard-rights {{ activeItem == 'rights' ? 'active' : ''}}">
+          <view class="content">
+            <block wx:if="{{ vipRights.freePostage == 1 }}" >
+              <view class="item">包邮</view>
+              <view class="item">所有商品购买后统统包邮</view>
+            </block>
+            <block wx:if="{{ vipRights.discount != 0 }}">
+              <view class="item">打折</view>
+              <view class="item">所有商品一律<span>{{ vipRights.discount }}</span>折</view>
+            </block>
+            <block wx:if="{{ vipRights.giveCouponStr != '' }}">
+              <view class="item">优惠券</view>
+              <view class="item"><span>{{ vipRights.giveCouponStr }}</span>购买商品时抵用</view>
+            </block>
+            <block wx:if="{{ vipRights.integral != 0 }}">
+              <view class="item">积分</view>
+              <view class="item">注册成功即赠送<span>{{ vipRights.integral }}</span>积分，消费1元得1积分</view>
+            </block>
+          </view>
+        </view>
+      </view>
+      <view class="card-item">
+        <view class="item-title {{ activeItem == 'notice' ? 'active' : ''}}" catchtap="showItemContent" data-item="notice">
+          <text>使用须知</text>
+          <label class="ico-moon icon-downarrow"></label>
+        </view>
+        <view class="item-body vipCard-notice {{ activeItem == 'notice' ? 'active' : ''}}" >
+          <view class="content">
+            <view class="item">权限说明</view>
+            <view class="item">会员权限会随着会员卡等级上升而加强，相应特权请留意会员卡下方的会员权益。</view>
+            <view class="item">积分说明</view>
+            <view class="item">消费10元得1积分，在积分商品中，100积分可以代替1元使用。</view>
+            <view class="item">补充说明</view>
+            <view class="item">{{ vipNotice.description }}</view>
+          </view>
+        </view>
+      </view>
+      <view class="card-item">
+        <view class="item-title {{ activeItem == 'points' ? 'active' : ''}}" catchtap="showItemContent" data-item="points">
+          <text>个人积分</text>
+          <label class="ico-moon icon-downarrow"></label>
+        </view>
+        <view class="item-body vipCard-points {{ activeItem == 'points' ? 'active' : ''}}">
+          <view class="content">
+            <view class="item">现有积分</view>
+            <view class="item">{{ vipPoints.canUseIntegral }}</view>
+            <view class="item">总积分</view>
+            <view class="item">{{ vipPoints.totalIntegral }}</view>
+            <view class="item">积累规则</view>
+            <view class="item">消费{{ vipPoints.consumeNum }}元，获得1积分</view>
+            <view class="item">使用规则</view>
+            <view class="item">100积分 = 1元</view>
+            <view class="item">提醒</view>
+            <view class="item">消费积分并不会影响升级会员卡，与会员卡升级相关的是总积分</view>
+          </view>
+        </view>
+      </view>
+      <view class="card-item">
+        <view class="item-title {{ activeItem == 'contact' ? 'active' : ''}}" catchtap="showItemContent" data-item="contact">
+          <text>联系我们</text>
+          <label class="ico-moon icon-downarrow"></label>
+        </view>
+        <view class="item-body vipCard-contact {{ activeItem == 'contact' ? 'active' : ''}}">
+          <view class="content">
+            <view class="item">店铺名称</view>
+            <view class="item">{{ vipContact.appName }}</view>
+            <view class="item">联系电话</view>
+            <view class="item">{{ vipContact.phone }}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="no-receive-card" wx:elif="{{ receiveCard == 0 }}">
+    <view class="tip-area">
+      <image class="tip-img" src="http://1251027630.cdn.myqcloud.com/1251027630/zhichi_frontend/static/webapp/images/no-vip.png"></image>
+      <text class="tip-text-1">暂无可用会员卡</text>
+      <text class="tip-text-2">获取方式，可留意店家消息</text>
+    </view>
+  </view>
+</view>

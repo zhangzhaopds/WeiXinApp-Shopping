@@ -1,0 +1,185 @@
+#myIntegral {
+  min-height: 100vh;
+  background-color: #eeeeee;
+}
+#myIntegral .myIntegral-content {
+  height: 100vh;
+}
+#myIntegral .integral-detail {
+  position: relative;
+  background: #5db968;
+  height: 125px;
+  margin-bottom: 10px;
+  color: #fff;
+}
+#myIntegral .integral-detail .detail-name .single-icon {
+  width: 20px;
+  height: 20px;
+  background: #fff;
+  color: #5db968;
+  border-radius: 50%;
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 20px;
+  margin-right: 5px;
+  font-size: 12px;
+}
+#myIntegral .integral-detail .detail-name {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  font-size: 18px;
+}
+#myIntegral .integral-detail .detail-name text {
+  vertical-align: middle;
+}
+#myIntegral .integral-detail .detail-num {
+  position: absolute;
+  left: 35px;
+  bottom: 18px;
+  font-size: 24px;
+}
+#myIntegral .integral-detail .detail-rule {
+  position: absolute;
+  top: 32px;
+  right: 30px;
+}
+#myIntegral .integral-detail .detail-rule .single-icon {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  line-height: 14px;
+  margin-right: 5px;
+  background: #5db968;
+  color: #fff;
+  border-radius: 50%;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 12px;
+  border: 1px solid #fff;
+}
+#myIntegral .integral-detail .detail-rule text {
+  font-size: 14px;
+}
+#myIntegral .message-nav {
+  width: 100%;
+  height: 42px;
+  line-height: 42px;
+  text-align: center;
+  background-color: #fff;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #e9e9e9;
+  z-index: 1;
+}
+#myIntegral .message-nav.fixed {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+#myIntegral .message-nav.nofixed {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+#myIntegral .message-nav .type-item {
+  position: relative;
+  display: inline-block;
+  min-width: 70px;
+}
+#myIntegral .message-nav .type-item:first-child {
+  margin-right: 15px;
+}
+#myIntegral .message-nav .type-item.active {
+  color: #55b737;
+  border-bottom: 1px solid #55b737;
+}
+#myIntegral .message-content {
+  display: none;
+  /*max-height: calc(100vh - 177px);*/
+}
+#myIntegral .message-content.active {
+  display: block;
+}
+#myIntegral .message-item {
+  position: relative;
+  margin: 0;
+  width: 100%;
+  background: #fff;
+  border-bottom: 1px solid #e9e9e9;
+}
+#myIntegral .message-item:last-child {
+  margin-bottom: 16px; 
+}
+#myIntegral .message-item .message-title {
+  width: calc(100% - 110px);
+  padding: 15px 0 0 15px;
+  font-size: 16px;
+  overflow: hidden;
+}
+#myIntegral .message-item .message-time {
+  margin: 10px 0 12px 15px;
+  color: #d6d6d6;
+  font-size: 12px;
+}
+#myIntegral .message-item .message-num {
+  position: absolute;
+  top: 18px;
+  right: 15px;
+  overflow: hidden;
+  font-size: 14px;
+  color: #5db968;
+}
+
+/* 积分商品 积分规则页面*/
+#myIntegral .myIntegral-rule {
+  display: block;
+}
+#myIntegral .rule-list {
+  padding: 10px 0;
+  border-bottom: 1px solid #ddd;
+  background: #feffff;
+}
+#myIntegral .rule-item {
+  min-height: 36px;
+  margin: 0 10px;
+  padding: 5px 0;
+  line-height: 36px;
+}
+#myIntegral .rule-item:last-child {
+  border: 0;
+}
+#myIntegral .rule-item .item-name {
+  display: inline-block;
+  height: 36px;
+  width: 85px;
+  margin-right: 8px;
+  vertical-align: top;
+  color: #878889;
+  text-align: center;
+  overflow: hidden;
+}
+#myIntegral .rule-item .item-content {
+  display: inline-block;
+  max-width: calc(100% - 100px);
+  min-height: 36px;
+  line-height: 36px;
+  overflow: hidden;
+  vertical-align: top;
+}
+#myIntegral .rule-item .data-img {
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+}
+#myIntegral .myIntegral-rule .confirm-btn {
+  margin: 14px 10px;
+  padding: 10px 0;
+  background: #55b737;
+  border-radius: 5px;
+  color: #fff;
+  text-align: center;
+  font-size: 16px;
+}

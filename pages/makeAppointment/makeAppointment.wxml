@@ -1,0 +1,42 @@
+<view class="appointmentPage-wrap page" id="appointmentPage" data-router="appointmentPage">
+  <view class="appointment-top-section">
+    <view class="appointment-model-field">
+      <text>服务时长</text>
+      <text style="float:right;">{{ serviceTimeUnit }}</text>
+      <view class="appointment-model-right">
+        <picker class="appointment-field-selection" mode="selector" range="{{ appointmentInfo.serviceLongRange }}" value="{{ longRangeIndex }}" bindchange="serviceLongChange">
+          <view>{{ appointmentInfo.serviceLongRange[longRangeIndex] }}</view>
+        </picker>
+      </view>
+    </view>
+    <view class="appointment-model-field" wx:if="{{ serviceTimeUnit == '小时' }}">
+      <text>营业时段</text>
+      <view class="appointment-model-right">
+        <picker class="appointment-field-selection" mode="selector" range="{{ appointmentInfo.servicePeriodRange }}" value="{{ periodRangeIndex }}" bindchange="servicePeriodSelectChange">
+          <view>{{ appointmentInfo.servicePeriodRange[periodRangeIndex] }}</view>
+        </picker>
+      </view>
+    </view>
+    <view class="appointment-model-field" style="border:none;"><text>价格</text><view class="appointment-model-right"><text class="appointment-service-price">{{ servicePrice }}</text> 元</view></view>
+  </view>
+  <view class="appointment-time-section">
+    <view class="appointment-date-list">
+      <view wx:for="{{ appointmentInfo.serviceDateList }}" wx:for-item="date" class="appointment-date-item {{ selectedDate == date.date ? 'selected':'' }} {{ !date.ifBusiness ? 'disabled':'' }}" data-date="{{ date.date }}" data-ifBusinessDay="{{ date.ifBusiness }}" bindtap="serviceDateChange">
+        <view>{{ date.week }}<text wx:if="{{ !date.ifBusiness }}">(不营业)</text></view>
+        <view>{{ date.modifiedDate }}</view>
+      </view>
+    </view>
+    <view class="appointment-period-list">
+      <view wx:for="{{ appointmentInfo.servicePeriodList }}" wx:for-item="period" class="appointment-period-item {{ selectedPeriod == period.interval ? 'selected':'' }} {{ period.can_buy == 0 || period.expired == 1 ? 'disabled' : '' }}" bindtap="servicePeriodListChange" data-expired="{{ period.expired }}" data-can-buy="{{ period.can_buy }}" data-interval="{{ period.interval }}">
+        <view>{{ period.interval }}</view>
+        <text wx:if="{{ period.can_buy == 0 || period.expired == 1 }}">({{ period.expired == 1 ? '过期' : '约满' }})</text>
+      </view>
+    </view>
+  </view>
+  <view class="appointment-bottom-bar">
+    <form report-submit="true" bindsubmit="sureMakeAppointment">
+      <button formType="submit" class="btn btn-block sure-make-appointment">确认</button>
+    </form>
+    <!-- <text class="btn btn-block sure-make-appointment" bindtap="sureMakeAppointment">确认</text> -->
+  </view>
+</view>

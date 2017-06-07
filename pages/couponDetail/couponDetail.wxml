@@ -1,0 +1,20 @@
+<view class="page" id="couponDetail" style="background: {{ couponDetail.background ? couponDetail.background : 'rgb(61, 183, 248);' }}">
+  <view class="coupon-wrap">
+    <image src="{{ couponDetail.logoUrl }}" alt="logo" class="logo"></image>
+    <view class="name">{{ couponDetail.appName }}</view>
+    <view class="title">{{ couponDetail.title }}</view>
+    <view class="sub-title">{{ couponDetail.subTitle }}</view>
+    <view class="condition">使用条件：{{ couponDetail.useCondition }}</view>
+    <view class="date">可用时间：{{ couponDetail.useData }}</view>
+    <view class="time">{{ couponDetail.useTime }}</view>
+    <view class="exclude">{{ couponDetail.excludeHoliday }} {{ couponDetail.excludeWeekend }}</view>
+    <view class="contact-wrap">
+      <view class="address">
+        <view class="address-field">地址: </view>
+        <view class="address-text">{{ couponDetail.address }}</view>
+      </view>
+      <view class="phone">电话: {{ couponDetail.phone }}</view>
+    </view>
+  </view>
+  <view class="receive-btn" bindtap="receiveCoupon" style="background: {{ hasReceive ? '#ddd' : '#ffd63c;' }}">{{ hasReceive ? '已领取': '领取' }}</view>
+</view>

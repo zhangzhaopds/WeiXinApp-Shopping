@@ -1,0 +1,59 @@
+page {
+    width: 100%;
+    height: 100%;
+}
+#verificationCodePage {
+    position: relative;
+    background-color: #fff;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+}
+.verification-code-area {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -100px;
+    margin-left: -75px;
+    width: 150px;
+}
+.verification-code-img {
+    width: 150px;
+    height: 150px;
+}
+.verification-code-text {
+    font-size: 16px;
+}
+.verification-code-text > view{
+    display: inline-block;
+}
+.verification-code-finished {
+    display: none;
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    border: 2px solid #ff0000;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    transform: rotate(30deg);
+}
+.verification-code-finished .text {
+    display: inline-block;
+    border: 1px solid #ff0000;
+    color: #ff0000;
+    border-radius: 50%;
+    font-size: 12px;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    margin-top: 4px;
+    text-align: center;
+}
+.verification-code-area.finished .verification-code-img,
+.verification-code-area.finished .verification-code-text {
+    opacity: 0.3;
+}
+.verification-code-area.finished .verification-code-finished {
+    display: block;
+}

@@ -1,0 +1,122 @@
+.shoppingCart-top-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2.625rem;
+  line-height: 2.625rem;
+  padding: 0 0.625rem;
+  margin-bottom: 0.625rem;
+  box-shadow: 0 0.0625rem 0.125rem #eee;
+  text-align: center;
+  z-index: 9;
+  background-color: #fff;
+}
+.top-nav-right {
+  position: absolute;
+  top: 0;
+  right: 0.625rem;
+  height: 100%;
+}
+
+.shoppingCart-edit-bar {
+  position: fixed;
+  top: 3.1875rem;
+  left: 0;
+  right: 0;
+  margin-bottom: 0.625rem;
+  padding: 0.3125rem 0.625rem;
+  line-height: 1.9375rem;
+  background: #fff;
+}
+.shoppingCart-list-wrap {
+  margin-top: 2.8125rem;
+  margin-bottom: 2.8125rem;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.shoppingCart-list-wrap.editing-list {
+  margin-top: 6.25rem;
+  margin-bottom: 0;
+}
+.shoppingCart-goods-list {
+  background-color: #fff;
+  margin-bottom: 0.625rem;
+}
+.shoppingCart-goods-list:last-child {
+  margin-bottom: 0;
+}
+.shoppingCart-goods-list > view {
+  position: relative;
+}
+.shoppingCart-goods-content {
+  padding: 0.625rem 4.5rem 0.625rem 0;
+}
+.shoppingCart-goods-right {
+  position: absolute;
+  top: 0.625rem;
+  right: 0.75rem;
+  line-height: 1.25rem;
+  text-align: right;
+}
+.shoppingCart-goods-list .shoppingCart-check-box {
+  margin: 1.1rem 0.625rem 0;
+  padding: 0.3rem;
+  float: left;
+}
+.shoppingCart-goods-list .check-box {
+  margin: 0;
+}
+.shoppingCart-goods-cover {
+  float: left;
+  width: 3.125rem;
+  height: 3.125rem;
+  margin-right: 0.625rem;
+}
+.shoppingCart-goods-title {
+  font-size: 0.75rem;
+}
+.shoppingCart-goods-model {
+  margin-top: 5rpx;
+  color: #818181;
+}
+.quantity {
+  margin-top: 14rpx;
+}
+.shoppingCart-bottom-nav {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 14rpx 23rpx;
+  line-height: 89rpx;
+  z-index: 9;
+  background-color: #fff;
+  box-shadow: 0 -2rpx 5rpx #eee;
+}
+.shoppingCart-all-price {
+  color: #d20e10;
+}
+.shoppingCart-goto-pay {
+  min-width: 5rem;
+  background-color: #ffcc01;
+  border-color: #ffcc01;
+  color:#333;
+}
+.shoppingCart-pay-dialog {
+  text-align: center;
+}
+.shoppingCart-pay-dialog .shoppingCart-check-box {
+  margin-top: 0.375rem;
+}
+.shoppingCart-dialog-detail > view {
+  line-height: 2.125rem;
+}
+.shoppingCart-payment {
+  text-align: left;
+  padding: 0 0.9375rem;
+}
+.shoppingCart-pay-directly {
+  margin: 0 0.9375rem;
+}
+
